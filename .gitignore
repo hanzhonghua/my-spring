@@ -1,0 +1,3 @@
+# Project exclude paths
+/thinking-in-spring/ioc-container-overview/target/
+/thinking-in-spring/java-bean/target/
