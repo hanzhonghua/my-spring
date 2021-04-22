@@ -10,7 +10,7 @@ import com.spring.domain.User;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 
 /**
- * BeanDefinition Sprin的配置元信息接口
+ * BeanDefinition Spring的配置元信息接口
  * 定义的有：
  * Bean 的类名，作用域，属性等
  * <p>

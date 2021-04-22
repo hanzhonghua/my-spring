@@ -12,9 +12,8 @@
         <module name="ioc-container-overview" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="spring-bean" target="1.5" />
-      <module name="springbean" target="1.5" />
+    <bytecodeTargetLevel target="8">
+      <module name="spring-bean" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
