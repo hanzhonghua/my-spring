@@ -13,7 +13,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
-      <module name="spring-bean" target="8" />
+      <module name="spring-bean" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

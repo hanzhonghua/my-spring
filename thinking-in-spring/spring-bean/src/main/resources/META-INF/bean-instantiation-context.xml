@@ -6,4 +6,12 @@
 
     <!--通过静态方法实例化 Bean-->
     <bean id="user-by-static-method" class="com.spring.domain.User" factory-method="createUser"/>
+
+    <!--Bean 工厂方法实例化 Bean-->
+    <bean id="user-by-instance-method" factory-bean="userFactory" factory-method="createUser" />
+
+    <!--通过 FactoryBean 实例化-->
+    <bean id="user-by-factory-bean" class="com.spring.bean.definition.factory.UserFactoryBean" />
+
+    <bean id="userFactory" class="com.spring.bean.definition.factory.DefaultUserFactory" />
 </beans>
