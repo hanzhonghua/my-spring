@@ -3,9 +3,11 @@ package com.spring.bean.definition;
 import com.spring.bean.definition.factory.UserFactory;
 import com.spring.domain.User;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.serviceloader.ServiceLoaderFactoryBean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.ServiceLoader;
 
 /**
@@ -22,7 +24,12 @@ public class SpecialBeanInstantiationDemo {
     public static void main(String[] args) {
         BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:/META-INF/special-bean-instantiation-context.xml");
 
-        serviceLoaderDemo();
+        //serviceLoaderDemo();
+
+
+        ServiceLoader<UserFactory> serviceLoader = beanFactory.getBean("serviceLoaderFactoryBean", ServiceLoader.class);
+        serviceLoadFactoryBeanDemo(serviceLoader);
+
 
     }
 
@@ -32,7 +39,16 @@ public class SpecialBeanInstantiationDemo {
         Iterator<UserFactory> iterator = load.iterator();
         while (iterator.hasNext()) {
             UserFactory next = iterator.next();
-            System.out.println(next);
+            System.out.println(next.createUser());
         }
     }
+
+    public static void serviceLoadFactoryBeanDemo(ServiceLoader<UserFactory> serviceLoader) {
+        Iterator<UserFactory> iterator = serviceLoader.iterator();
+        while (iterator.hasNext()) {
+            UserFactory next = iterator.next();
+            System.out.println(next.createUser());
+        }
+    }
+
 }
