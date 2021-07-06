@@ -107,6 +107,7 @@ Spring Bean 基础
             • Java API：AbstractBeanDefinition#setInitMethodName(String)
             
     思考：假设以上三种方式均在同一 Bean 中定义，那么这些方法的执行顺序是怎样？
+        PostConstruct -> InitializingBean -> 自定义
 
 ## 延迟初始化 Spring Bean
 
@@ -115,6 +116,7 @@ Spring Bean 基础
         • Java 注解：@Lazy(true)
         
     思考：当某个 Bean 定义为延迟初始化，那么，Spring 容器返回的对象与非延迟的对象存在怎样的差异？
+        初始化的时机不同，非延迟对象是在容器启动前已经初始化（见AbstractApplicationContext.refresh().finishBeanFactoryInitialization(...)），而延迟初始化时按需加载，使用时候在初始化
 
 ## 销毁 Spring Bean
 
@@ -127,6 +129,7 @@ Spring Bean 基础
             • Java API：AbstractBeanDefinition#setDestroyMethodName(String)
             
     思考：假设以上三种方式均在同一 Bean 中定义，那么这些方法的执行顺序是怎样？
+        PreDestroy -> DisposableBean -> 自定义
 
 ## 垃圾回收 Spring Bean
 
@@ -139,10 +142,12 @@ Spring Bean 基础
 ## 面试题
 
     沙雕面试题 - 如何注册一个 Spring Bean？
-    答：通过 BeanDefinition 和外部单体对象来注册
+    答：通过 BeanDefinition 和外部单体对象来注册；这里外部单体对象指的是不是由Spring创建的，也可以交给Spring来管理，比如new User();
+        可以通过ConfigurableListableBeanFactory.registerSingleton() 将之注册到Spring中
     
     996 面试题 - 什么是 Spring BeanDefinition？
     答：回顾“定义 Spring Bean” 和 “BeanDefinition 元信息”
+    是Bean的元信息，包括Bean的名称，对应的class，是否延迟加载等，Ioc容器用这个接口以完成延迟加载等特性处理
     
     
     劝退面试题 - Spring 容器是怎样管理注册 Bean 

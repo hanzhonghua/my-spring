@@ -4,11 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--ServiceLoaderFactoryBean-->
     <bean id="serviceLoaderFactoryBean" class="org.springframework.beans.factory.serviceloader.ServiceLoaderFactoryBean">
-        <property name="serviceType" value="com.spring.bean.definition.factory.UserFactory" />
-    </bean>
-
-    <bean id="serviceListFactoryBean" class="org.springframework.beans.factory.serviceloader.ServiceListFactoryBean">
         <property name="serviceType" value="com.spring.bean.definition.factory.UserFactory" />
     </bean>
 
