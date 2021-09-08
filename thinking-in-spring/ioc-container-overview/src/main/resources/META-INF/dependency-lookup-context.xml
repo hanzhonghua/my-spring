@@ -7,6 +7,21 @@
     <bean id="user" class="com.spring.domain.User">
         <property name="id" value="1"/>
         <property name="name" value="小李子"/>
+        <property name="city" value="BEIJING" />
+        <property name="workCity" value="BEIJING,HANGZHOU" />
+        <!--<property name="lifeCity" value="BEIJING,HENAN" />-->
+        <property name="lifeCity" >
+            <list>
+                <value>BEIJING</value>
+                <value>HENAN</value>
+            </list>
+        </property>
+        <property name="cityMap">
+            <map>
+                <entry key="河南" value="HENAN" />
+                <entry key="北京" value="BEIJING" />
+            </map>
+        </property>
     </bean>
 
     <bean id="superUser" class="com.spring.domain.SuperUser" parent="user" primary="true">

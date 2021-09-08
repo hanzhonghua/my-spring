@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="dependency-injection" />
         <module name="spring-bean" />
         <module name="java-bean" />
         <module name="dependency-lookup" />

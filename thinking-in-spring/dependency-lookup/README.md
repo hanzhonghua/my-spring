@@ -144,9 +144,8 @@ Spring IoC 依赖查找
     不过 ObjectFactory 仅关注一个或一种类型的 Bean 依赖查找，并且 自身不具备依赖查找的能力，能力则由 BeanFactory 输出。
     BeanFactory 则提供了单一类型、集合类型以及层次性等多种依赖查 找方式。
  
-  面试题
-    996 面试题 - BeanFactory.getBean 操作是否线程安全?
-    答:BeanFactory.getBean 方法的执行是线程安全的，超过过程中会增加互 斥锁
+  面试题 996 面试题 - BeanFactory.getBean 操作是否线程安全?
+  答:BeanFactory.getBean 方法的执行是线程安全的，操作过程中会增加互 斥锁
  
  面试题
     劝退面试题 - Spring 依赖查找与注入在来源上的区别?
