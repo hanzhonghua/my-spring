@@ -8,9 +8,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="dependency-injection" />
         <module name="spring-bean" />
+        <module name="dependency-source" />
+        <module name="ioc-container-overview" />
         <module name="java-bean" />
         <module name="dependency-lookup" />
-        <module name="ioc-container-overview" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
