@@ -60,7 +60,7 @@
 | 来源  | Spring Bean 对象  |  生命周期管理 | 配置元信息  | 使用场景  |
 |---|---|---|---|---|
 | Spring BeanDefinition  |  是 | 是  | 有  | 依赖查找、依赖注入  |
-|  单体对象 |  是 | 否  | 有  |  依赖查找、依赖注入 |
+|  单体对象 |  是 | 否  | 无  |  依赖查找、依赖注入 |
 | Resolvable Dependency (Spring内部对象) | 否  | 否  | 无  |  依赖注入 |
 
 ## Spring BeanDefinition 作为依赖来源
@@ -68,6 +68,8 @@
     
     • 元数据：BeanDefinition
     • 注册：BeanDefinitionRegistry#registerBeanDefinition
+        DefaultListableBeanFactory#registerBeanDefinition 注册时以beanName为key，BeanDefinition为value，存到了 beanDefinitionMap 中
+        又把beanName放到 beanDefinitionNames 集合中保证注册顺序
     • 类型：延迟和非延迟
     • 顺序：Bean 生命周期顺序按照注册顺序
 
@@ -115,6 +117,8 @@
 
 答：可以的，单例对象的注册与 BeanDefinition 不同，BeanDefinition 会 被 ConfigurableListableBeanFactory#freezeConfiguration() 方法影响，
 从而冻结注册，单例对象则没有这个限制。
+BeanDefinition 通过 DefaultListableBeanFactory.registerBeanDefinition() 完成注册
+单例对象通过 DefaultSingletonBeanRegistry.registerSingleton() 完成注册
 
 劝退面试题 - Spring 依赖注入的来源有哪些？
 答：Spring BeanDefinition

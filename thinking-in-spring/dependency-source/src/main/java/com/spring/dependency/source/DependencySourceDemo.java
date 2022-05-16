@@ -48,7 +48,7 @@ public class DependencySourceDemo {
      * 		beanFactory.registerResolvableDependency(ResourceLoader.class, this);
      * 		beanFactory.registerResolvableDependency(ApplicationEventPublisher.class, this);
      * 		beanFactory.registerResolvableDependency(ApplicationContext.class, this);
-     * 通过	registerResolvableDependency 注入的，这些Bean不会被 Spring 托管，所以在下面的依赖查找时都找不到
+     * 通过	ConfigurableListableBeanFactory.registerResolvableDependency 注入的，这些Bean不会被 Spring 托管，所以在下面的依赖查找时都找不到
      *
      * 这里可以总结依赖注入的来源有：
      * 1.Spring BeanDefinition（主要是业务 Bean）
