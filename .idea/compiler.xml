@@ -12,6 +12,7 @@
         <module name="ioc-container-overview" />
         <module name="java-bean" />
         <module name="dependency-lookup" />
+        <module name="bean-scope" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
